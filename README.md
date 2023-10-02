@@ -1,0 +1,2 @@
+#### Basically me fooling around
+I got hooked to EE274, and Stanford has the Stanford Compression Library. This is just me shamelessly trying to copy it in GO. I know I am a masochist, but no better way to learn a language, right?
