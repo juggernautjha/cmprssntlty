@@ -4,6 +4,7 @@ Author: Jha
 The good thing about Go is that functions are under namespaces (package in this case)
 and I can therefore keep splitting the code till the second coming of christ with little to
 no consequence.
+! Boy testing this is going to be fun.
 */
 package utilities
 

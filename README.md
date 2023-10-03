@@ -6,4 +6,6 @@ Why do the functions I wish to import have to be capitalized. I miss good ol' py
 ##### Co-Pilot Rocks
 Gilfoyle was right. 
 ##### Aaargh
-Why in the H-E-double-fuck does Go have docstrings **ABOVE** the function definition.
+Why in the H-E-double-fuck does Go have docstrings **ABOVE** the function definition. 
+##### Go is Goo
+No context, go fys.
