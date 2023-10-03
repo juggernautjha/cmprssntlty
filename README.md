@@ -3,3 +3,5 @@ I got hooked to EE274, and Stanford has the Stanford Compression Library. This i
 I shall also be posting my rants regularly here.
 ##### Go sucks!
 Why do the functions I wish to import have to be capitalized. I miss good ol' python. Save me god.
+##### Co-Pilot Rocks
+Gilfoyle was right. 
