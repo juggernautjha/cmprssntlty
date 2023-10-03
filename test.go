@@ -6,11 +6,11 @@ import (
 )
 
 func main() {
-	z := map[string]float64{
-		"A": 0.5,
-		"B": 0.30,
-		"C": 0.19,
-		"D": 0.01,
+	z := map[rune]float64{
+		'a': 0.5,
+		'b': 0.30,
+		'c': 0.19,
+		'd': 0.01,
 	}
 	// hello.mydist
 	x := utilities.Distribution{Distrib: z}

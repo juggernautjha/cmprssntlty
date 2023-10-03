@@ -10,10 +10,6 @@ import (
 	"math"
 )
 
-type Distribution struct {
-	Distrib map[string]float64 // DO not imagine using something else. I believe I am fucking up, but who knows.
-}
-
 /*
 Distribution will be endowed with the following functions:
 validate -> verifies if it is indeed a valid probability distribution.
@@ -23,8 +19,11 @@ to_list -> converts the map to a list. go equivalent of [dist[s] for s in dist]
 
 ! God willing, I WILL write unit tests some day. I do not thing god wills that though.
 */
+type Distribution struct {
+	Distrib map[rune]float64 // DO not imagine using something else. I believe I am fucking up, but who knows.
+}
 
-func Get_distribution(t map[string]float64) Distribution {
+func Get_distribution(t map[rune]float64) Distribution {
 	// Always use this method to initialize a new distribution. This also checks for validity.
 	temp_dist := Distribution{t}
 	if temp_dist.validate() {
@@ -34,13 +33,13 @@ func Get_distribution(t map[string]float64) Distribution {
 	return temp_dist
 }
 
-func Get_fromfrequency(t map[string]int64) Distribution {
+func Get_fromfrequency(t map[rune]int64) Distribution {
 	var sum float64 = 0
 	for _, v := range t {
 		sum += float64(v)
 	}
 
-	temp_map := make(map[string]float64)
+	temp_map := make(map[rune]float64)
 	for i, j := range t {
 		temp_map[i] = float64(j) / sum
 	}
@@ -52,7 +51,6 @@ func (dist *Distribution) validate() bool {
 	var sum float64 = 0
 	for _, v := range dist.Distrib {
 		if v <= 1e-6 {
-			log.Fatal("Invalid probability distribution, Values too small")
 			return false
 		}
 		sum += v
@@ -69,9 +67,9 @@ func (dist *Distribution) Size() int {
 	return len(dist.Distrib)
 }
 
-func (dist *Distribution) Get_alphabet() []string {
+func (dist *Distribution) Get_alphabet() []rune {
 	//fun fact, we don't actually need a set because maps do not allow duplicate keys.
-	var temp []string
+	var temp []rune
 	for k := range dist.Distrib {
 		temp = append(temp, k)
 	}
