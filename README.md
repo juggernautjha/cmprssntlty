@@ -8,4 +8,4 @@ Gilfoyle was right.
 ##### Aaargh
 Why in the H-E-double-fuck does Go have docstrings **ABOVE** the function definition. 
 ##### Go is Goo
-No context, go fys.
+No context, go fys. Also copilor is sexy.
