@@ -1,5 +1,5 @@
 /*
-For doing `things` with data.
+For doing `things` with Data.
 Author: Jha
 The good thing about Go is that functions are under namespaces (package in this case)
 and I can therefore keep splitting the code till the second coming of christ with little to
@@ -16,14 +16,18 @@ import (
 Datablock -> wrapper around a list of symbols.
 */
 type Datablock struct {
-	data []rune
+	Data []rune
 }
 
-func Get_datablock(t []rune) Datablock {
+func Get_Datablock(t []rune) Datablock {
 	/*
-		Utility function, converts string to a datablock.
+		Utility function, converts string to a Datablock.
 	*/
 	return Datablock{t}
+}
+
+func Get_data(t *Datablock) []rune {
+	return t.Data
 }
 
 func (t *Datablock) Get_and_count() ([]rune, map[rune]int64) {
@@ -31,7 +35,7 @@ func (t *Datablock) Get_and_count() ([]rune, map[rune]int64) {
 		Gets a frequency count. Returns a list of symbols and a map of frequencies.
 	*/
 	var temp_map map[rune]int64 = make(map[rune]int64)
-	for _, v := range t.data {
+	for _, v := range t.Data {
 		temp_map[v] += 1
 	}
 	var temp_list []rune
@@ -72,6 +76,12 @@ type ListStream struct {
 }
 
 //! Generic functions, just copy paste these while defining new streams. You should be done with minimal damage to the goods.
+/*
+Good old library byllshit.
+*/
+func Get_ListStream(z []rune, position int) ListStream {
+	return ListStream{list: z, position: position}
+}
 
 /*
 Seeks. Lol.
@@ -115,28 +125,29 @@ Being the shameless copycat that I am, I am going to again basically translate
 SCLs code. And copy their TODO: investigate faster ways of reading a block.
 */
 func (t *ListStream) Get_block(blocksize int) (Datablock, error) {
-	datalist := make([]rune, 0)
+	Datalist := make([]rune, 0)
 	for i := 0; i < blocksize; i += 1 {
 		s, err := t.Get_symbol()
 		if err != nil {
 			break
 		}
-		datalist = append(datalist, s)
+		Datalist = append(Datalist, s)
 	}
-	if len(datalist) == 0 {
+	if len(Datalist) == 0 {
 		return Datablock{[]rune{}}, errors.New("Empty Block")
 	}
-	return Datablock{datalist}, nil
+	return Datablock{Datalist}, nil
 }
 
 /*
 Write_block should be an easy function to implement, but what do I know?
 */
 func (t *ListStream) Write_block(block Datablock) error {
-	for _, v := range block.data {
+	for _, v := range block.Data {
 		t.Write_symbol(v)
 	}
 	return nil
 }
 
-//! File stream yayy. Need to learn fileops in go, brb going to fuck myself.
+// ! File stream yayy. Need to learn fileops in go, brb going to fuck myself.
+//! Second thoughts: fuck it. We ball. Implementing algorithms now. Or maybe a nice wrapper around them.
